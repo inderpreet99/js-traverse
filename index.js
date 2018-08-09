@@ -315,5 +315,5 @@ forEach(objectKeys(Traverse.prototype), function (key) {
 });
 
 var hasOwnProperty = Object.hasOwnProperty || function (obj, key) {
-    return key in obj;
+    return typeof key !== 'undefined' && key in obj
 };
