@@ -276,9 +276,14 @@ function copy (src) {
     else return src;
 }
 
-var objectKeys = Object.keys || function keys (obj) {
+var objectKeys = function keys (obj) {
     var res = [];
     for (var key in obj) res.push(key)
+
+    var symbolKeys = Object.getOwnPropertySymbols(obj);
+    for (var k = 0; k < symbolKeys.length; k++) {
+        res.push(symbolKeys[k])
+    }
     return res;
 };
 
